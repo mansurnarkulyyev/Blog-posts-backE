@@ -36,7 +36,6 @@ app.use(express.json());
 app.use(cors());
 app.use('/uploads', express.static('uploads'));
 
-
 // app.post('/auth/login', (req, res) => {//не обязательно указать auth можно вместо него писать users или вообше не указать а оставить логин 
 //     const token = jwt.sign({
 //         email: req.body.email,
