@@ -15,7 +15,7 @@ import {handleValidationErrors, checkAuth} from './utils/index.js';
 
 import { UserController, PostController  } from './controllers/imports.js';
 
-mongoose.connect('mongodb+srv://Mansur:wwwwww@cluster0.q5ugdms.mongodb.net/blog?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('DB ok'))
     .catch((err) => console.log('DB error', err))
 
@@ -72,7 +72,7 @@ app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors,
 
 
 
-app.listen(8888, (err) => {//на какой порт нужен прикрепить наше приложении на ноджс, 
+app.listen(process.env.PORT || 8888, (err) => {//на какой порт нужен прикрепить наше приложении на ноджс, 
     //вторым параметром передаем фций не объяз, но  желательно. и мы передаем
     //что если сервер не запустился тогд а вернет ошибку предупрежедении
     // если все ок то ок 
