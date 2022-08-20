@@ -1,10 +1,10 @@
 {
-  "name": "blog-posts",
+  "name": "Blog-posts-backE",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "type": "module",
-  "homepage": "https://goitacademy.github.io/blog-posts",
+  "homepage": "https://goitacademy.github.io/Blog-posts-backE",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
@@ -40,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": "v16.15.0"
   }
 }
