@@ -20,23 +20,7 @@ export const getLastTags = async (req, res) => {
     }
 };
 
-// export const getComments = async (req, res) => {
-//     try {
-//          const posts = await PostModel.find().limit(5).exec();
 
-//         const comments = posts
-//             .map(obj => obj.comments)
-//             .flat()
-//             .slice(0, 5);
-
-//         res.json(comments);
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json({
-//             message: 'Failed to retrieve article',
-//         });
-//     }
-// };
 
 export const getAll = async (req, res) => {
     try {
