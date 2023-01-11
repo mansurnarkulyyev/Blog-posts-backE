@@ -7,21 +7,32 @@ import multer from 'multer';
 
 import cors from 'cors';
 
+import fs from 'fs';
+
 import { registerValidation,loginValidation, postCreateValidation, commentCreateValidation } from './validations/validations.js';
 
 import {handleValidationErrors, checkAuth} from './utils/index.js';
 
 import { UserController, PostController, CommentController  } from './controllers/imports.js';
 
-// mongoose.connect(process.env.MONGODB_URI)
-mongoose.connect("mongodb+srv://admin:wwwwwww@cluster0.pvbvkjs.mongodb.net/?retryWrites=true&w=majority")
-    .then(() => console.log('DB ok'))
-    .catch((err) => console.log('DB error', err))
+
+const { MONGODB_URI, PORT=8888 } = process.env;
+    mongoose
+  .connect("mongodb+srv://admin:wwwwwww@cluster0.pvbvkjs.mongodb.net/?retryWrites=true&w=majority")
+  .then(() => app.listen(PORT, () => console.log("Started ok")))
+  .catch((err) => {
+    console.log(err.message);
+    process.exitCode = 1;
+  });
+
 
 const app = express();
 
 const storage = multer.diskStorage({
     destination: (_, __, cb) => {
+        if(!fs.existsSync('uploads')){
+            fs.mkdirSync('uploads')
+        }
         cb(null, 'uploads');
     },
     filename: (_, file, cb) => {
@@ -62,9 +73,9 @@ app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors,
 
 
 
-app.listen( 8888, (err) => {
-    if (err) {
-        return console.log(err);
-    }
-    return console.log("Server OK!");
-});
+// app.listen( 8888, (err) => {
+//     if (err) {
+//         return console.log(err);
+//     }
+//     return console.log("Server OK!");
+// });
