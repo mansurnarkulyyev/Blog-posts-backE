@@ -7,29 +7,25 @@ const PostModel = new mongoose.Schema({
     },
     text: {
         type: String,
-        required: true,  //required - объяхатеьный
+        required: true,  
         // unique: true, //unique уникальный
     },
-    tags: {//passwordHash расшифрует пороль что бы ни кто не узнал 
+    tags: {
         type: Array,
         default:[],
     },
-    // comments: {
-    //     type: String,
-    //     default:[],
-    // },
-    viewsCount:  {//количество просмотров
+    viewsCount:  {
         type: Number,
         default:0,
     },
-     user: {//автор статьи который создал
+     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',  //required - объяхатеьный
-        required: true, //unique уникальный
+        ref: 'User',  
+        required: true, 
     },
-    imageUrl: String,   // необъязательная свойства а если объект то объязательная 
+    imageUrl: String,    
 }, {
-   versionKey: false, timestamps: true,  // создания дата 
+   versionKey: false, timestamps: true,  
 },
 );
 

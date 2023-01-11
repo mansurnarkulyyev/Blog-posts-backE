@@ -146,7 +146,6 @@ export const update = async (req, res) => {
             imageUrl: req.body.imageUrl,
             user: req.userId,
             tags: req.body.tags.split(","),
-            // comments: req.body.comments,
         });
 
         res.json({

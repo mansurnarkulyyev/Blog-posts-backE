@@ -1,25 +1,6 @@
-//создание статьи и удаление,редактирование,получение итд
+
 
 import CommentModel from "../models/Comments.js"
-
-// export const getLastTags = async (req, res) => {
-//     try {
-//         const posts = await CommentModel.find().limit(5).exec();
-
-//         const tags = posts
-//             .map(obj => obj.tags)
-//             .flat()
-//             .slice(0, 5);
-
-//         res.json(tags);
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json({
-//             message: 'Failed to retrieve article',
-//         });
-//     }
-// };
-
 
 
 export const getAllComments = async (req, res) => {
@@ -35,47 +16,6 @@ export const getAllComments = async (req, res) => {
     }
 };
 
-
-// export const getOne = async (req, res) => {
-//     try {
-//         const postId = req.params.id;
-        
-//         PostModel.findOneAndUpdate(
-//             {
-//                 _id: postId,
-//             },
-//             {
-//                 $inc: { viewsCount: 1 },
-//             },
-//             {
-//                 returnDocument: 'after',
-//             },
-//             (err, doc) => {
-//                 if (err) {
-//                     console.log(err);
-//                    return res.status(500).json({
-//                         message: 'Failed to return article',
-//                     });
-//                 }
-
-
-//                 if (!doc) {
-//                     return res.status(404).json({
-//                         message: 'Article not found',
-//                     });
-//                 }
-
-//                 res.json(doc); 
-//             },
-//         ).populate('user');
-
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json({
-//             message: 'Failed to retrieve article',
-//         });
-//     }
-// };
 
 export const remove = async (req, res) => {
     try {
