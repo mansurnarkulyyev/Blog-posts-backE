@@ -18,10 +18,9 @@
   "scripts": {
     "start": "node server.js",
     "start:dev": "nodemon server.js",
-    "build": "react-scripts build",
-    "test": "jshint || true",
-    "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}"
+    "lint:js": "eslint src/**/*.{js,jsx}",
+     "lint": "eslint **/*.js",
+    "lint:fix": "eslint --fix **/*.js"
   },
   "eslintConfig": {
     "extends": [
