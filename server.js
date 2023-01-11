@@ -7,11 +7,14 @@ import multer from 'multer';
 
 import cors from 'cors';
 
+import fs from 'fs';
+
 import { registerValidation,loginValidation, postCreateValidation, commentCreateValidation } from './validations/validations.js';
 
 import {handleValidationErrors, checkAuth} from './utils/index.js';
 
 import { UserController, PostController, CommentController  } from './controllers/imports.js';
+
 
 const { MONGODB_URI, PORT=8888 } = process.env;
     mongoose
@@ -27,6 +30,9 @@ const app = express();
 
 const storage = multer.diskStorage({
     destination: (_, __, cb) => {
+        if(!fs.existsSync('uploads')){
+            fs.mkdirSync('uploads')
+        }
         cb(null, 'uploads');
     },
     filename: (_, file, cb) => {
@@ -67,9 +73,4 @@ app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors,
 
 
 
-app.listen( 8888, (err) => {
-    if (err) {
-        return console.log(err);
-    }
-    return console.log("Server OK!");
-});
+
