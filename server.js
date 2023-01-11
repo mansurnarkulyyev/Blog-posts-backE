@@ -73,9 +73,4 @@ app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors,
 
 
 
-// app.listen( 8888, (err) => {
-//     if (err) {
-//         return console.log(err);
-//     }
-//     return console.log("Server OK!");
-// });
+
