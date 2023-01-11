@@ -13,10 +13,15 @@ import {handleValidationErrors, checkAuth} from './utils/index.js';
 
 import { UserController, PostController, CommentController  } from './controllers/imports.js';
 
-// mongoose.connect(process.env.MONGODB_URI)
-mongoose.connect("mongodb+srv://admin:wwwwwww@cluster0.pvbvkjs.mongodb.net/?retryWrites=true&w=majority")
-    .then(() => console.log('DB ok'))
-    .catch((err) => console.log('DB error', err))
+const { MONGODB_URI, PORT=8888 } = process.env;
+    mongoose
+  .connect("mongodb+srv://admin:wwwwwww@cluster0.pvbvkjs.mongodb.net/?retryWrites=true&w=majority")
+  .then(() => app.listen(PORT, () => console.log("Started ok")))
+  .catch((err) => {
+    console.log(err.message);
+    process.exitCode = 1;
+  });
+
 
 const app = express();
 
