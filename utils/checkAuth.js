@@ -11,7 +11,7 @@ export default (req, res, next) => {
             next();
         } catch (e) {
             return res.status(403).json({
-                message: 'No access',
+                message: 'No token access ',
             });
         }
     } else {

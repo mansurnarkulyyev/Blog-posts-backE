@@ -8,7 +8,7 @@ const PostModel = new mongoose.Schema({
     text: {
         type: String,
         required: true,  //required - объяхатеьный
-        unique: true, //unique уникальный
+        // unique: true, //unique уникальный
     },
     tags: {//passwordHash расшифрует пороль что бы ни кто не узнал 
         type: Array,
@@ -29,7 +29,7 @@ const PostModel = new mongoose.Schema({
     },
     imageUrl: String,   // необъязательная свойства а если объект то объязательная 
 }, {
-    timestamps: true,  // создания дата 
+   versionKey: false, timestamps: true,  // создания дата 
 },
 );
 

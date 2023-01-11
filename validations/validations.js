@@ -19,3 +19,9 @@ export const postCreateValidation = [
     // body('comments','Invalid comment format ').optional().isString(),
     body('imageUrl','Invalid image link').optional().isString(),
 ];   
+
+export const commentCreateValidation = [
+    body('text','Enter the text of the article').isLength({ min: 3 }).isString(),
+    // body('comments','Invalid comment format ').optional().isString(),
+    body('imageUrl','Invalid image link').optional().isString(),
+];   

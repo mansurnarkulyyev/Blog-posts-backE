@@ -7,16 +7,16 @@ const UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,  //required - объяхатеьный
-        unique: true, //unique уникальный
+        required: true,  
+        unique: true, 
     },
-    passwordHash: {//passwordHash расшифрует пороль что бы ни кто не узнал 
+    passwordHash: {
         type: String,
         required: true,
     },
-    avatarUrl: String,   // необъязательная свойства а если объект то объязательная 
+    avatarUrl: String,   
 }, {
-    timestamps: true,  // создания дата 
+  versionKey: false,  timestamps: true,  
 },
 );
 

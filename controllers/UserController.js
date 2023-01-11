@@ -6,7 +6,6 @@ import UserModel from '../models/User.js';
 export const register = async (req, res) => {
     try {
      
-
         const password = req.body.password;
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(password, salt);
@@ -45,7 +44,8 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
     try {
-        const user = await UserModel.findOne({ email: req.body.email });
+        const { email} = req.body;
+        const user = await UserModel.findOne({ email });
        
         if (!user) {
             return res.status(404).json({
