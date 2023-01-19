@@ -16,9 +16,11 @@ import {handleValidationErrors, checkAuth} from './utils/index.js';
 import { UserController, PostController, CommentController  } from './controllers/imports.js';
 
 
+mongoose.set('strictQuery', true);
+
 const { MONGODB_URI, PORT=8888 } = process.env;
     mongoose
-  .connect("mongodb+srv://admin:wwwwwww@cluster0.pvbvkjs.mongodb.net/?retryWrites=true&w=majority")
+  .connect("mongodb+srv://Mansur:Rzj8yE9XVfUq40vp@cluster0.cojdy0d.mongodb.net/pro-test?retryWrites=true&w=majority")
   .then(() => app.listen(PORT, () => console.log("Started ok")))
   .catch((err) => {
     console.log(err.message);
